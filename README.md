@@ -1,1 +1,4 @@
-# acoustic test
+# How to run
+```
+npm install
+```
