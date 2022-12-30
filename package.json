@@ -2,9 +2,8 @@
   "name": "acoustic-task",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run"
   },
   "repository": {
     "type": "git",
@@ -17,6 +16,14 @@
   },
   "homepage": "https://github.com/MSikorska/acoustic#readme",
   "dependencies": {
-    "cypress": "^12.2.0"
+    "@badeball/cypress-cucumber-preprocessor": "^15.0.0",
+    "@cypress/webpack-preprocessor": "^5.16.1",
+    "cypress": "^12.2.0",
+    "webpack": "^5.75.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": false
+    }
   }
 }
