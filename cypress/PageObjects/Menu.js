@@ -1,5 +1,9 @@
 class Menu{
 
+    mainPage(){
+        return cy.visit("https://www.demoblaze.com/index.html");
+    }
+
     logIn(){
     cy.get("#login2").click();
     cy.get(".modal-content");

@@ -1,11 +1,10 @@
 const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
-import DemoblazePage from "../PageObjects/DemoblazePage.js";
-import LoginPage from "../PageObjects/LoginPage.js";
 import Menu from "../PageObjects/Menu.js";
+import LoginPage from "../PageObjects/LoginPage.js";
 
 Given("I go to the demoblaze store website", () => {
-    const page = new DemoblazePage();
-    page.mainPage();
+    const mainMenu = new Menu();
+    mainMenu.mainPage();
 });
 
 Given("I choose Log in", () => {
