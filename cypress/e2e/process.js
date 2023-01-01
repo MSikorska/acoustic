@@ -1,6 +1,8 @@
 const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
 import Menu from "../PageObjects/Menu.js";
 import LoginPage from "../PageObjects/LoginPage.js";
+import Cart from "../PageObjects/Cart.js";
+import PlaceOrder from "../PageObjects/PlaceOrder.js";
 
 Given("I go to the demoblaze store website", () => {
     const mainMenu = new Menu();
@@ -40,18 +42,19 @@ When("I'm going to the cart", () => {
 });
 
 When("Place order", () => {
-  cy.get(".btn")
-  cy.contains("Place Order").click()
+  const cartPage = new Cart();
+  cartPage.placeOrder();
 });
 
 Then("Entry of shipping data", () => {
-  cy.get("#name").type('Martyna')
-  cy.get("#country").type('Poland')
-  cy.get("#city").type('Gdansk')
-  cy.get("#card").type('Visa')
-  cy.get("#month").type('January')
-  cy.get("#year").type('2023')
-  cy.get('[onclick="purchaseOrder()"]').click();
+  const order = new PlaceOrder;
+  order.enterName();
+  order.enterCountry();
+  order.enterCity();
+  order.enterCreditCard();
+  order.enterMonth();
+  order.enterYear();
+  order.purchase();
 });
 
 // Then("Asercja",)
