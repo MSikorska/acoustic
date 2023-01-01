@@ -1,13 +1,26 @@
 const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
+import DemoblazePage from "../PageObjects/DemoblazePage.js";
+import LoginPage from "../PageObjects/LoginPage.js";
+import Menu from "../PageObjects/Menu.js";
 
 Given("I go to the demoblaze store website", () => {
-  cy.visit("https://www.demoblaze.com/index.html");
+    const page = new DemoblazePage();
+    page.mainPage();
 });
 
 Given("I choose Log in", () => {
-  cy.get("#login2").click();
+    const mainMenu = new Menu();
+    mainMenu.logIn();
 });
 
+Given("Log in", () => {
+    const login = new LoginPage();
+    login.enterUsername();
+    login.enterPassword();
+    login.submit();
+});
+
+/*
 Given("I enter Username {string}", (login) => {
   cy.get("#loginusername").type(login);
 });
@@ -21,6 +34,7 @@ When("I log in", () => {
   cy.get(".btn")
   cy.get('[onclick="logIn()"]').click();
 });
+*/
 
 When("I choose a category Phones", () => {
   cy.get('[id="itemc"]')
@@ -38,13 +52,14 @@ When("Add to cart", () => {
 });
 
 When("I'm going to the cart", () => {
-  cy.get("#cartur").click()
+  const mainMenu = new Menu();
+  mainMenu.cart();
 });
 
 When("Place order", () => {
   cy.get(".btn")
   cy.contains("Place Order").click()
-}); 
+});
 
 Then("Entry of shipping data", () => {
   cy.get("#name").type('Martyna')
@@ -56,4 +71,4 @@ Then("Entry of shipping data", () => {
   cy.get('[onclick="purchaseOrder()"]').click();
 });
 
-Then("Asercja", )
+// Then("Asercja",)
