@@ -2,7 +2,6 @@ const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor")
 import DemoblazePage from "../PageObjects/DemoblazePage.js";
 import LoginPage from "../PageObjects/LoginPage.js";
 import Menu from "../PageObjects/Menu.js";
-import Categories from "../PageObjects/Categories.js";
 
 Given("I go to the demoblaze store website", () => {
     const page = new DemoblazePage();
@@ -22,13 +21,13 @@ Given("Log in", () => {
 });
 
 When("I choose a category Phones", () => {
-    const mainCategories = new Categories;
-    mainCategories.phones();
+  const mainMenu = new Menu();
+    mainMenu.phones();
 });
 
-When("I choose Samsung galaxy s6", () => {
+When("I choose phone {string}", (phoneName) => {
   cy.get(".hrefch")
-  cy.contains("Samsung galaxy s6").click()
+  cy.contains(phoneName).click()
 });
 
 When("Add to cart", () => {

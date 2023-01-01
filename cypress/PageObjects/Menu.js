@@ -10,6 +10,10 @@ class Menu{
         cy.get("#cartur").click();
     }
     
+    phones(){
+        cy.get('[id="itemc"]');
+        cy.contains("Phones").click();
+    }
 }
 
 export default Menu

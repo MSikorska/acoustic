@@ -5,7 +5,7 @@ Feature: Purchase process of smartphone
     And I choose Log in
     And Log in
     When I choose a category Phones
-    And I choose Samsung galaxy s6
+    And I choose phone "Samsung galaxy s6"
     And Add to cart
     And I'm going to the cart
     And Place order
