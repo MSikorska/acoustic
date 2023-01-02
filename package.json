@@ -24,6 +24,13 @@
   "cypress-cucumber-preprocessor": {
     "json": {
       "enabled": false
+    },
+    "html": {
+      "enabled": true
     }
+  },
+  "devDependencies": {
+    "cypress-multi-reporters": "^1.6.2",
+    "mocha-junit-reporter": "^2.2.0"
   }
 }
