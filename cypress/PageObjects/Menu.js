@@ -12,6 +12,7 @@ class Menu{
 
     cart(){
         cy.get("#cartur").click();
+        cy.wait(1000);
     }
     
     phones(){

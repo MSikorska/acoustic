@@ -27,19 +27,23 @@ When("I choose a category Phones", () => {
 });
 
 When("I choose phone {string}", (phoneName) => {
-  cy.get(".hrefch")
-  cy.contains(phoneName).click()
+  cy.get(".hrefch");
+  cy.contains(phoneName).click();
 });
 
 When("Add to cart", () => {
-  cy.get(".btn")
-  cy.contains("Add to cart").click()
+  cy.get(".btn");
+  cy.contains("Add to cart").click();
 });
 
 When("I'm going to the cart", () => {
   const mainMenu = new Menu();
   mainMenu.cart();
 });
+
+When("In cart there is a phone {string}",(phoneName)=> {
+  cy.get('tr:nth-child(1) td:nth-child(2)').should("contain", (phoneName));
+})
 
 When("Place order", () => {
   const cartPage = new Cart();
@@ -54,7 +58,9 @@ Then("Entry of shipping data", () => {
   order.enterCreditCard();
   order.enterMonth();
   order.enterYear();
-  order.purchase();
+  order.purchase()
 });
 
-// Then("Asercja",)
+Then("The purchase has been completed",() => {
+  cy.get("h2").should("contain", ("Thank you for your purchase!"));
+})

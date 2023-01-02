@@ -8,6 +8,7 @@ Feature: Purchase process of smartphone
     And I choose phone "Samsung galaxy s6"
     And Add to cart
     And I'm going to the cart
+    And In cart there is a phone "Samsung galaxy s6"
     And Place order
     And Entry of shipping data
-    # Then Asercja
+    Then The purchase has been completed

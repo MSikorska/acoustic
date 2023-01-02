@@ -7,9 +7,11 @@ class PlaceOrder {
     enterCountry(){
         cy.get("#country").type('Poland');
     }
+
     enterCity(){
         cy.get("#city").type('Gdansk');
     }
+    
     enterCreditCard(){
         cy.get("#card").type('Visa');
     }
