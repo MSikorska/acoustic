@@ -1,9 +1,5 @@
 class LoginPage{
 
-    enterUsername(){
-        cy.get("#loginusername").type("msikorska");
-    }
-
     enterPassword(){
         cy.get("#loginpassword").type("Passwd456$");
     }

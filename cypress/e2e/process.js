@@ -14,12 +14,17 @@ Given("I choose Log in", () => {
     mainMenu.logIn();
 });
 
-Given("Log in", () => {
+Given("Log in as {string}", (username) => {
     const login = new LoginPage();
-    login.enterUsername();
+    cy.get("#loginusername").type(username);
     login.enterPassword();
     login.submit();
 });
+
+Given("On the website I can see the title: Welcome {string}", (username) => {
+  cy.get("#nameofuser").should("contain", ("Welcome msikorska"));
+}
+)
 
 When("I choose a category Phones", () => {
   const mainMenu = new Menu();

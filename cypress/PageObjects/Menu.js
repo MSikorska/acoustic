@@ -1,6 +1,7 @@
 class Menu{
 
     mainPage(){
+        cy.fixture("example.json");
         return cy.visit("https://www.demoblaze.com/index.html");
     }
 
