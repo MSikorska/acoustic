@@ -22,3 +22,12 @@ When("Log in as {string}", (username) => {
 Then("On the website I can see the title: Welcome {string}", (username) => {
     cy.get("#nameofuser").should("contain", ("Welcome msikorska"));
   });
+
+When("I want to log out", () => {
+    cy.get("#logout2").click();
+  });
+
+Then("I have been logged out and can log back in again", () => {
+    cy.get("#signin2").should("contain", ("Sign up"));
+    cy.get("#login2").should("contain", ("Log in"));
+  });
