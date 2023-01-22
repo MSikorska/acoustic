@@ -20,6 +20,12 @@ class Menu{
         cy.get('[id="itemc"]');
         cy.contains("Phones").click();
     }
+
+    laptops(){
+        cy.get('[id="itemc"]');
+        cy.contains("Laptops").click();
+        cy.wait(1000);
+    }
 }
 
 export default Menu
