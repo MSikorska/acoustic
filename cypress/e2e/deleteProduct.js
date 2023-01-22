@@ -50,5 +50,5 @@ When("I remove the laptop from the cart", () => {
 });
 
 Then("In the basket there is no {string}", (laptopName) => {
-     cy.should('not.contain', (laptopName));
+     cy.get("#page-wrapper").should('not.contain', (laptopName));
 });
