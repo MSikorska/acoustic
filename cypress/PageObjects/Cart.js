@@ -1,5 +1,5 @@
 class Cart {
-    placeOrder(){
+    placeOrder() {
         cy.get(".btn");
         cy.contains("Place Order").click();
     }

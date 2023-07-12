@@ -1,11 +1,16 @@
-class LoginPage{
+const usernameInput = "#loginusername"
+const passwordInput = "#loginpassword"
+const submitButton = ".btn"
 
-    enterPassword(){
-        cy.get("#loginpassword").type("Passwd456$");
+class LoginPage {
+    enterUsername(username) {
+        cy.get(usernameInput).type(username)
     }
-
+    enterPassword(password) {
+        cy.get(passwordInput).type(password);
+    }
     submit() {
-        cy.get(".btn").contains("Log in").click();
+        cy.get(submitButton).contains("Log in").click();
     }
 }
 export default LoginPage

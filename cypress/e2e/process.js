@@ -3,27 +3,29 @@ import Menu from "../PageObjects/Menu.js";
 import LoginPage from "../PageObjects/LoginPage.js";
 import Cart from "../PageObjects/Cart.js";
 import PlaceOrder from "../PageObjects/PlaceOrder.js";
+import loginData from "../fixtures/loginData.json";
+import orderData from "../fixtures/orderData.json";
 
 Given("I go to the demoblaze store website", () => {
-    const mainMenu = new Menu();
-    mainMenu.mainPage();
+  const mainMenu = new Menu();
+  mainMenu.mainPage();
 });
 
 Given("I choose Log in", () => {
-    const mainMenu = new Menu();
-    mainMenu.logIn();
+  const mainMenu = new Menu();
+  mainMenu.logIn();
 });
 
 When("Log in as {string}", (username) => {
-    const login = new LoginPage();
-    cy.get("#loginusername").type(username);
-    login.enterPassword();
-    login.submit();
+  const login = new LoginPage();
+  cy.get("#loginusername").type(username);
+  login.enterPassword(loginData.password);
+  login.submit();
 });
 
 When("I choose a category Phones", () => {
   const mainMenu = new Menu();
-    mainMenu.phones();
+  mainMenu.phones();
 });
 
 When("I choose phone {string}", (phoneName) => {
@@ -41,7 +43,7 @@ When("I'm going to the cart", () => {
   mainMenu.cart();
 });
 
-When("In cart there is a phone {string}",(phoneName)=> {
+When("In cart there is a phone {string}", (phoneName) => {
   cy.get('tr:nth-child(1) td:nth-child(2)').should("contain", (phoneName));
 })
 
@@ -52,15 +54,15 @@ When("Place order", () => {
 
 Then("Entry of shipping data", () => {
   const order = new PlaceOrder;
-  order.enterName();
-  order.enterCountry();
-  order.enterCity();
-  order.enterCreditCard();
-  order.enterMonth();
-  order.enterYear();
+  order.enterName(orderData.name);
+  order.enterCountry(orderData.country);
+  order.enterCity(orderData.city);
+  order.enterCreditCard(orderData.card);
+  order.enterMonth(orderData.month);
+  order.enterYear(orderData.year);
   order.purchase()
 });
 
-Then("The purchase has been completed",() => {
+Then("The purchase has been completed", () => {
   cy.get("h2").should("contain", ("Thank you for your purchase!"));
 })

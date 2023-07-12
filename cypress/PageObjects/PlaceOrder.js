@@ -1,32 +1,40 @@
+const nameInput = "#name"
+const countryInput = "#country"
+const cityInput = "#city"
+const cardInput = "#card"
+const monthInput = "#month"
+const yearInput = "#year"
+const purchaseButton = '[onclick="purchaseOrder()"]'
+
 class PlaceOrder {
-    
-    enterName(){
-        cy.get("#name").type('Martyna');
-    }
 
-    enterCountry(){
-        cy.get("#country").type('Poland');
-    }
+  enterName(name) {
+    cy.get(nameInput).type(name);
+  }
 
-    enterCity(){
-        cy.get("#city").type('Gdansk');
-    }
-    
-    enterCreditCard(){
-        cy.get("#card").type('Visa');
-    }
+  enterCountry(country) {
+    cy.get(countryInput).type(country);
+  }
 
-    enterMonth(){
-        cy.get("#month").type('January');
-    }
+  enterCity(city) {
+    cy.get(cityInput).type(city);
+  }
 
-    enterYear(){
-        cy.get("#year").type('2023');
-    }
+  enterCreditCard(card) {
+    cy.get(cardInput).type(card);
+  }
 
-    purchase(){
-        cy.get('[onclick="purchaseOrder()"]').click();
-    }
+  enterMonth(month) {
+    cy.get(monthInput).type(month);
+  }
+
+  enterYear(year) {
+    cy.get(yearInput).type(year);
+  }
+
+  purchase() {
+    cy.get(purchaseButton).click();
+  }
 
 }
 export default PlaceOrder
